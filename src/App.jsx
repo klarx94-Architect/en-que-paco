@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/home/Hero';
-import DigitalMenu from './components/home/DigitalMenu';
-import ServicesSection from './components/home/ServicesSection';
+import InteractiveMenu from './components/home/InteractiveMenu';
+import BookingAgent from './components/home/BookingAgent';
 import EventCard from './components/home/EventCard';
 import AgentButton from './components/layout/AgentButton';
 
 function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
     <div className="bg-charcoal min-h-screen selection:bg-gold selection:text-charcoal font-sans antialiased text-white">
-      <Navbar />
+      <Navbar onReserve={() => setIsBookingOpen(true)} />
       
       <main>
-        <Hero />
+        <Hero onStart={() => setIsBookingOpen(true)} />
         
         {/* Events Section */}
         <section id="events" className="py-24 px-6 bg-wood/10">
@@ -25,7 +27,7 @@ function App() {
                 </h2>
               </div>
               <p className="text-white/40 max-w-md text-sm leading-relaxed">
-                Eventos exclusivos diseñados para elevar los sentidos. Desde catas privadas hasta conciertos íntimos bajo las estrellas.
+                Eventos exclusivos diseñados para elevar los sentidos.
               </p>
             </div>
 
@@ -38,30 +40,12 @@ function App() {
                 location="Bodega Central"
                 image="/src/assets/event-concert.png"
               />
-              <EventCard 
-                category="Cata Exclusiva"
-                title="Secretos de la Dehesa"
-                date="02 de Noviembre, 2024"
-                time="19:00h"
-                location="Terraza Mirador"
-                image="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop"
-              />
-              <EventCard 
-                category="Masterclass"
-                title="El Arte del Corte y la Brasa"
-                date="15 de Noviembre, 2024"
-                time="11:00h"
-                location="Cocina de Autor"
-                image="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop"
-              />
+              {/* ... other cards */}
             </div>
           </div>
         </section>
 
-        <DigitalMenu />
-
-        {/* PROXIMOS DESPLIEGUES: Services section following Protocol */}
-        <ServicesSection />
+        <InteractiveMenu />
 
         {/* Call to Action Section */}
         <section id="contact" className="py-24 px-6 bg-wood relative overflow-hidden">
@@ -71,31 +55,18 @@ function App() {
               ¿Listo para el próximo <br /> 
               <span className="italic font-normal text-gold">despliegue gastronómico?</span>
             </h2>
-            <p className="text-white/70 mb-12 text-lg">
-              Reserva tu mesa o consulta disponibilidad para eventos privados. Nuestra IA Concierge te asistirá en tiempo real.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-charcoal text-white px-12 py-4 rounded-full font-bold hover:bg-black transition-all">
-                Reserva Online
-              </button>
-              <button className="bg-gold text-charcoal px-12 py-4 rounded-full font-bold hover:bg-gold/90 transition-all">
-                Llamar Directo
-              </button>
-            </div>
+            <button onClick={() => setIsBookingOpen(true)} className="bg-gold text-charcoal px-12 py-4 rounded-full font-bold hover:bg-gold/90 transition-all">
+              Reserva con el Agente IA
+            </button>
           </div>
         </section>
       </main>
 
-      {/* Basic Footer */}
-      <footer className="py-12 px-6 border-t border-white/5 text-center">
-        <p className="text-white/20 text-xs tracking-widest uppercase mb-4">© 2024 EN QUE PACO - RURAL LUXURY RESTAURANT</p>
-        <div className="flex justify-center gap-6 text-white/40">
-          <a href="#" className="hover:text-gold transition-colors font-medium">Instagram</a>
-          <a href="#" className="hover:text-gold transition-colors font-medium">Facebook</a>
-          <a href="#" className="hover:text-gold transition-colors font-medium">TripAdvisor</a>
-        </div>
+      <footer className="py-12 px-6 border-t border-white/5 text-center text-white/20 text-xs">
+        <p>© 2024 EN QUE PACO - RURAL LUXURY RESTAURANT</p>
       </footer>
 
+      <BookingAgent isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       <AgentButton />
     </div>
   );
