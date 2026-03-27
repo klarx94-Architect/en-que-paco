@@ -2,13 +2,13 @@ import React from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/home/Hero';
 import DigitalMenu from './components/home/DigitalMenu';
+import ServicesSection from './components/home/ServicesSection';
 import EventCard from './components/home/EventCard';
 import AgentButton from './components/layout/AgentButton';
-import { motion } from 'framer-motion';
 
 function App() {
   return (
-    <div className="bg-charcoal min-h-screen selection:bg-gold selection:text-charcoal">
+    <div className="bg-charcoal min-h-screen selection:bg-gold selection:text-charcoal font-sans antialiased text-white">
       <Navbar />
       
       <main>
@@ -60,6 +60,9 @@ function App() {
 
         <DigitalMenu />
 
+        {/* PROXIMOS DESPLIEGUES: Services section following Protocol */}
+        <ServicesSection />
+
         {/* Call to Action Section */}
         <section id="contact" className="py-24 px-6 bg-wood relative overflow-hidden">
           <div className="absolute inset-0 bg-charcoal/20 backdrop-blur-[2px]" />
@@ -87,9 +90,9 @@ function App() {
       <footer className="py-12 px-6 border-t border-white/5 text-center">
         <p className="text-white/20 text-xs tracking-widest uppercase mb-4">© 2024 EN QUE PACO - RURAL LUXURY RESTAURANT</p>
         <div className="flex justify-center gap-6 text-white/40">
-          <a href="#" className="hover:text-gold transition-colors">Instagram</a>
-          <a href="#" className="hover:text-gold transition-colors">Facebook</a>
-          <a href="#" className="hover:text-gold transition-colors">TripAdvisor</a>
+          <a href="#" className="hover:text-gold transition-colors font-medium">Instagram</a>
+          <a href="#" className="hover:text-gold transition-colors font-medium">Facebook</a>
+          <a href="#" className="hover:text-gold transition-colors font-medium">TripAdvisor</a>
         </div>
       </footer>
 
