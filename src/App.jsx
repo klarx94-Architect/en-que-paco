@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from './components/layout/Navbar';
-import Hero from './components/home/Hero';
-import InteractiveMenu from './components/home/InteractiveMenu';
 import ServicesSection from './components/home/ServicesSection';
 import BookingAgent from './components/home/BookingAgent';
+import Footer from './components/layout/Footer';
 import { Smartphone } from 'lucide-react';
 
 function App() {
@@ -74,13 +72,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="py-20 px-10 border-t border-black/5 flex flex-col items-center gap-8 bg-white">
-         <div className="text-[10px] font-black uppercase tracking-[1em] text-neutral-dark/20">
-           En Que Paco · 2024
-         </div>
-         <div className="w-[1px] h-12 bg-neutral-dark/10" />
-         <p className="text-[8px] font-bold uppercase tracking-[0.5em] text-neutral-dark/40">Güejar Sierra · Granada · Sierra Nevada</p>
-      </footer>
+      <Footer />
 
       <BookingAgent isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       
