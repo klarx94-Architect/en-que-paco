@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/home/Hero';
+import InteractiveMenu from './components/home/InteractiveMenu';
 import ServicesSection from './components/home/ServicesSection';
 import BookingAgent from './components/home/BookingAgent';
 import Footer from './components/layout/Footer';
