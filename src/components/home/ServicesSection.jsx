@@ -1,52 +1,67 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Music, GlassWater, Users, Beer } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const VIBES = [
   { 
-    title: 'Tardeo de Copas', 
-    desc: 'El mejor ambiente para desconectar con una buena ginebra o una cerveza fría tras subir a la sierra.',
-    icon: <Beer className="text-terracotta" size={32} />
+    id: 1, 
+    title: 'El Jazz de la Tarde', 
+    desc: 'Selección curada de clásicos que envuelven la atmósfera mientras disfrutas de una copa bien puesta.',
+    img: '/src/assets/paco/unnamed (4).jpg' 
   },
   { 
-    title: 'Música con Alma', 
-    desc: 'Selección de Jazz, Country y clásicos en inglés que crean un ambiente único y diferente.',
-    icon: <Music className="text-terracotta" size={32} />
+    id: 2, 
+    title: 'Esencia Güéjar', 
+    desc: 'Donde la montaña se encuentra con el diseño. Un refugio acogedor para el viajero contemporáneo.',
+    img: '/src/assets/paco/unnamed (5).jpg' 
   },
   { 
-    title: 'Encuentros Rústicos', 
-    desc: 'Espacio acogedor donde lo tradicional se mezcla con la alegría de disfrutar entre amigos.',
-    icon: <Users className="text-terracotta" size={32} />
+    id: 3, 
+    title: 'Tardeo & Tapas', 
+    desc: 'La tradición granadina elevada. Cañas frías, conversaciones infinitas y el mejor producto local.',
+    img: '/src/assets/paco/unnamed (6).jpg' 
   }
 ];
 
 export default function ServicesSection() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+
   return (
-    <section id="services" className="py-24 px-6 bg-paco-white border-t border-paco-brown/5">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-terracotta uppercase tracking-[0.3em] text-sm mb-4 block font-bold">Atmósfera Única</span>
-          <h2 className="text-4xl md:text-6xl font-brand font-bold text-paco-brown mb-6">Mucho más que un Bar</h2>
-          <p className="text-paco-brown/50 max-w-2xl mx-auto">
-            En el corazón de Güéjar Sierra, En Que Paco es refugio para amantes de la buena música, las copas bien puestas y las tapas tradicionales.
-          </p>
+    <section ref={targetRef} className="relative h-[300vh] bg-neutral-dark">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        {/* Architectural Background Text */}
+        <div className="absolute top-10 left-10 z-0">
+           <span className="text-pearl-white/5 text-[15vw] font-serif font-black leading-none uppercase">Ritmo</span>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {VIBES.map((vibe, idx) => (
-            <motion.div
-              key={vibe.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-10 rounded-[2.5rem] bg-white border border-paco-brown/5 shadow-sm hover:shadow-xl transition-all flex flex-col items-center text-center group"
-            >
-              <div className="mb-6 p-4 rounded-full bg-terracotta/5 group-hover:scale-110 transition-transform">{vibe.icon}</div>
-              <h3 className="text-2xl font-brand font-bold text-paco-brown mb-4">{vibe.title}</h3>
-              <p className="text-paco-brown/60 text-sm leading-relaxed">{vibe.desc}</p>
-            </motion.div>
+        <motion.div style={{ x }} className="flex gap-20 px-20 relative z-10">
+          {/* Introductory Card */}
+          <div className="flex-shrink-0 w-[500px] flex flex-col justify-center">
+             <span className="text-sierra-gold uppercase tracking-[0.5em] text-[10px] font-black mb-6">La Atmósfera</span>
+             <h2 className="text-7xl font-serif font-black text-pearl-white mb-8">Mucho más <br /><span className="italic font-normal text-sierra-gold">que un bar.</span></h2>
+             <p className="text-pearl-white/40 font-serif italic text-lg leading-relaxed">
+               "Güéjar Sierra es el escenario, Paco es el director de orquesta. Un espacio donde cada detalle ha sido pensado para ser vivido."
+             </p>
+          </div>
+
+          {/* Horizontal Gallery */}
+          {VIBES.map((vibe) => (
+            <div key={vibe.id} className="flex-shrink-0 w-[80vw] md:w-[600px] group">
+              <div className="relative h-[450px] overflow-hidden rounded-[3rem] shadow-2xl mb-8">
+                 <img src={vibe.img} alt={vibe.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" />
+                 <div className="absolute inset-0 bg-neutral-dark/20 group-hover:bg-transparent transition-colors" />
+                 
+                 {/* Numbering UI */}
+                 <div className="absolute top-8 right-8 w-12 h-12 rounded-full border border-pearl-white/20 flex items-center justify-center text-pearl-white font-bold text-xs">
+                    0{vibe.id}
+                 </div>
+              </div>
+              <h3 className="text-3xl font-serif font-black text-pearl-white mb-4 group-hover:text-sierra-gold transition-colors">{vibe.title}</h3>
+              <p className="text-pearl-white/40 text-sm leading-relaxed max-w-sm">{vibe.desc}</p>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

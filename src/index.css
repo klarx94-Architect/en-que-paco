@@ -1,45 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  --color-charcoal: #1A1A1A;
-  --color-terracotta: #8B4513;
-  --color-paco-brown: #2D241E;
-  --color-paco-white: #FCFAFA;
-  --color-gold: #C5A059;
-  --color-mountain-green: #2D4F1E;
+  --color-pearl-white: #FDFCFB;
+  --color-terracotta-deep: #4D2610;
+  --color-terracotta-mid: #8B4513;
+  --color-sierra-gold: #C5A059;
+  --color-neutral-dark: #121212;
+  
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Outfit", sans-serif;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+  font-family: 'Fraunces';
+  src: url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  font-family: 'Outfit';
+  src: url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 }
 
 body {
-  @apply bg-paco-white text-paco-brown font-sans antialiased;
+  @apply bg-pearl-white text-neutral-dark font-sans leading-relaxed selection:bg-terracotta-deep selection:text-white;
 }
 
-h1, h2, h3, h4, .font-serif {
-  font-family: 'Playfair Display', serif;
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  @apply tracking-tighter;
 }
 
-.text-terracotta {
-  color: #8B4513;
+/* Senior Level Utility Classes */
+.fluid-text-hero {
+  font-size: clamp(3rem, 15vw, 12rem);
+  line-height: 0.85;
 }
 
-.bg-paco-white {
-  background-color: #FCFAFA;
+.asymmetric-shadow {
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.05), -20px -20px 60px rgba(255,255,255,0.8);
 }
 
-/* Custom premium styles */
-.glass-panel-light {
-  @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-sm;
+.ceramic-gradient {
+  background: linear-gradient(135deg, #FDFCFB 0%, #F5F1EE 100%);
 }
 
-.mountain-texture {
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238b4513' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M0 0h20L10 10z'/%3E%3C/g%3E%3C/svg%3E");
+.clay-border {
+  border: 1px solid rgba(77, 38, 16, 0.1);
 }
