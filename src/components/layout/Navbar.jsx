@@ -76,10 +76,10 @@ export default function Navbar({ onReserve }) {
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden text-neutral-dark"
+          className="lg:hidden text-neutral-dark relative z-[210]"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
         >
-          {isMobileOpen ? <X size={32} /> : <Menu size={32} />}
+          {isMobileOpen ? <X size={32} strokeWidth={2.5} /> : <Menu size={32} />}
         </button>
       </div>
 
@@ -87,10 +87,11 @@ export default function Navbar({ onReserve }) {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 bg-pearl-white/90 z-[90] flex flex-col lg:hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-pearl-white z-[200] flex flex-col lg:hidden"
           >
             <div className="flex-1 flex flex-col items-center justify-center gap-8 py-20">
                {navLinks.map((link, idx) => (
