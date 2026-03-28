@@ -6,19 +6,19 @@ const VIBES = [
     id: 1, 
     title: 'El Jazz de la Tarde', 
     desc: 'Selección curada de clásicos que envuelven la atmósfera mientras disfrutas de una copa bien puesta.',
-    img: '/src/assets/paco/unnamed (4).jpg' 
+    img: '/assets/nosotros/img-20211112-142457-original.jpg' 
   },
   { 
     id: 2, 
     title: 'Esencia Güéjar', 
     desc: 'Donde la montaña se encuentra con el diseño. Un refugio acogedor para el viajero contemporáneo.',
-    img: '/src/assets/paco/unnamed (5).jpg' 
+    img: '/assets/nosotros/img-4389.jpg' 
   },
   { 
     id: 3, 
     title: 'Tardeo & Tapas', 
     desc: 'La tradición granadina elevada. Cañas frías, conversaciones infinitas y el mejor producto local.',
-    img: '/src/assets/paco/unnamed (6).jpg' 
+    img: '/assets/bar_tapas/img-5691.jpg' 
   }
 ];
 

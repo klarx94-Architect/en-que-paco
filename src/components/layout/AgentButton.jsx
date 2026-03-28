@@ -7,7 +7,7 @@ export default function AgentButton() {
 
   const startWhatsApp = () => {
     const phone = "34684790308";
-    const message = encodeURIComponent("Hola, me gustaría solicitar una reserva para una experiencia gastronómica en En Que Paco.");
+    const message = encodeURIComponent("Hola, me gustaría solicitar una reserva para una experiencia gastronómica en ENCAPACO.");
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
   };
 
@@ -23,7 +23,7 @@ export default function AgentButton() {
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gold" />
             
-            <h4 className="text-gold font-bold text-xs uppercase tracking-widest mb-2">Concierge En Que Paco</h4>
+            <h4 className="text-gold font-bold text-xs uppercase tracking-widest mb-2">Concierge ENCAPACO</h4>
             <p className="text-white/80 text-sm mb-4 leading-relaxed">
               Nuestro asistente personal le ayudará a coordinar su visita o evento privado de forma inmediata.
             </p>

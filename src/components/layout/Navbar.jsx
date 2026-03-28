@@ -1,35 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Utensils, Music, Globe, Phone, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 
 const Logo = ({ isScrolled }) => (
-  <motion.a 
-    href="/" 
-    className="flex items-center gap-4 group no-underline"
+  <motion.div 
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
   >
-    <div className="relative">
-      <div className="w-12 h-12 bg-terracotta-deep rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500 shadow-xl overflow-hidden">
-        <span className="text-pearl-white font-serif font-black text-2xl relative z-10">P</span>
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent opacity-50" />
-      </div>
-      <div className="absolute -inset-1 border border-sierra-gold/20 rounded-xl group-hover:scale-110 transition-transform duration-500" />
-    </div>
-    
-    <div className="flex flex-col">
-      <span className={cn(
-        "text-xl font-serif font-black tracking-tighter transition-colors duration-500 uppercase",
-        isScrolled ? "text-neutral-dark" : "text-neutral-dark"
-      )}>
-        En Que <span className="text-sierra-gold">Paco</span>
-      </span>
-      <span className="text-[10px] font-sans font-bold tracking-[0.3em] uppercase opacity-40 -mt-1">
-        Güéjar Sierra
-      </span>
-    </div>
-  </motion.a>
+    <Link to="/" className="flex items-center gap-4 group no-underline">
+      <img 
+        src="/assets/bar_tapas/group-4-2814581.png" 
+        alt="ENCAPACO Logo" 
+        className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+      />
+    </Link>
+  </motion.div>
 );
 
 export default function Navbar({ onReserve }) {
@@ -43,10 +30,10 @@ export default function Navbar({ onReserve }) {
   }, []);
 
   const navLinks = [
-    { name: 'Sabores', href: '#menu', icon: <Utensils size={14} /> },
-    { name: 'Ritmo', href: '#services', icon: <Music size={14} /> },
-    { name: 'Nosotros', href: '#about', icon: <Globe size={14} /> },
-    { name: 'Llegar', href: '#contact', icon: <Phone size={14} /> },
+    { name: 'Nuestro Menú', href: '/menu', icon: <Utensils size={14} /> },
+    { name: 'Ritmo', href: '/#services', icon: <Music size={14} /> },
+    { name: 'Nosotros', href: '/nosotros', icon: <Globe size={14} /> },
+    { name: 'Llegar', href: '/llegar', icon: <Phone size={14} /> },
   ];
 
   return (
@@ -60,17 +47,21 @@ export default function Navbar({ onReserve }) {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-12">
           {navLinks.map((link, idx) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * idx }}
-              className="group relative text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-dark/60 hover:text-neutral-dark transition-colors no-underline"
+              className="group relative"
             >
-              <span className="relative z-10">{link.name}</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-sierra-gold group-hover:w-full transition-all duration-500 ease-in-out" />
-            </motion.a>
+              <Link
+                to={link.href}
+                className="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-dark/60 hover:text-neutral-dark transition-colors no-underline block"
+              >
+                <span className="relative z-10">{link.name}</span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-sierra-gold group-hover:w-full transition-all duration-500 ease-in-out" />
+              </Link>
+            </motion.div>
           ))}
           
           <motion.button
@@ -102,14 +93,14 @@ export default function Navbar({ onReserve }) {
             className="fixed inset-0 bg-pearl-white z-[90] flex flex-col items-center justify-center gap-10 overflow-hidden lg:hidden"
           >
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsMobileOpen(false)}
                 className="text-5xl font-serif font-black text-neutral-dark hover:text-sierra-gold transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </motion.div>
         )}

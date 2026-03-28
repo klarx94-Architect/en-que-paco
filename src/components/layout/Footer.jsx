@@ -13,8 +13,8 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="space-y-10">
-            <div className="flex flex-col gap-2">
-               <span className="text-3xl font-serif font-black tracking-tighter uppercase">En Que <span className="text-sierra-gold">Paco</span></span>
+            <div className="flex flex-col gap-4">
+               <img src="/assets/bar_tapas/group-4-2814581.png" alt="ENCAPACO Logo" className="h-16 w-auto object-contain" />
                <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-pearl-white/40">Güejar Sierra · 2024</span>
             </div>
             <p className="text-pearl-white/40 font-serif italic text-sm leading-relaxed max-w-xs">
@@ -51,7 +51,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-4">
                  <Mail size={18} className="text-sierra-gold shrink-0" />
-                 <span className="text-sm font-serif italic text-pearl-white/60">hola@enquepaco.com</span>
+                 <span className="text-sm font-serif italic text-pearl-white/60">hola@encapaco.com</span>
               </li>
             </ul>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
         {/* Closing Line */}
         <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-pearl-white/20">
-             © 2024 EN QUE PACO · PROYECTO SENIOR GASTRO
+             © 2024 ENCAPACO · PROYECTO SENIOR GASTRO
            </p>
            <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

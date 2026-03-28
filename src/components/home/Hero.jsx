@@ -60,7 +60,7 @@ export default function Hero({ onReserve }) {
           >
             <div className="relative overflow-hidden rounded-[4rem] shadow-[-40px_40px_80px_rgba(0,0,0,0.1)] border-[12px] border-white">
               <img 
-                src="/src/assets/paco/unnamed.webp" 
+                src="/assets/bar_tapas/img-3468.jpg" 
                 alt="El Sabor de Paco" 
                 className="w-full aspect-[4/5] object-cover scale-110 hover:scale-100 transition-transform duration-1000"
               />
@@ -74,7 +74,7 @@ export default function Hero({ onReserve }) {
           >
             <div className="relative overflow-hidden rounded-[3rem] shadow-2xl border-[10px] border-white ring-1 ring-black/5">
               <img 
-                src="/src/assets/paco/unnamed (1).webp" 
+                src="/assets/bar_tapas/tapas6-2814433.jpg" 
                 alt="Tardeo en Güéjar" 
                 className="w-full aspect-square object-cover"
               />

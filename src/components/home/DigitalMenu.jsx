@@ -5,7 +5,7 @@ import { Star } from 'lucide-react';
 const MENU_ITEMS = [
   { 
     id: 1, 
-    name: 'Carne a la Brasa "En Que Paco"', 
+    name: 'Carne a la Brasa "ENCAPACO"', 
     price: '32€', 
     desc: 'Corte premium madurado 45 días, terminado en leña de encina.',
     image: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop',
