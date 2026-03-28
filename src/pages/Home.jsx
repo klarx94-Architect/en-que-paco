@@ -38,6 +38,15 @@ export default function Home({ onReserve }) {
                      <p className="font-serif font-bold text-lg">Jazz, Country <br /> & Pop Classics.</p>
                   </div>
                </div>
+
+               <div className="mt-16">
+                  <Link 
+                    to="/menu"
+                    className="inline-block bg-neutral-dark text-pearl-white px-12 py-6 rounded-full font-black uppercase tracking-[0.3em] text-[10px] hover:bg-sierra-gold transition-colors duration-500 shadow-xl no-underline"
+                  >
+                    Ver Nuestra Carta
+                  </Link>
+               </div>
             </div>
          </div>
       </section>

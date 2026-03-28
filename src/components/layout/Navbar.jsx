@@ -83,25 +83,57 @@ export default function Navbar({ onReserve }) {
         </button>
       </div>
 
-      {/* Mobile Curtain Menu */}
+      {/* Mobile Curtain Menu (Luxe Version) */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: '100vh', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="fixed inset-0 bg-pearl-white z-[90] flex flex-col items-center justify-center gap-10 overflow-hidden lg:hidden"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            className="fixed inset-0 bg-pearl-white/90 z-[90] flex flex-col lg:hidden"
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={() => setIsMobileOpen(false)}
-                className="text-5xl font-serif font-black text-neutral-dark hover:text-sierra-gold transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="flex-1 flex flex-col items-center justify-center gap-8 py-20">
+               {navLinks.map((link, idx) => (
+                 <motion.div
+                   key={link.name}
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ delay: 0.1 * idx }}
+                 >
+                   <Link
+                     to={link.href}
+                     onClick={() => setIsMobileOpen(false)}
+                     className="text-4xl md:text-6xl font-serif font-black text-neutral-dark hover:text-sierra-gold transition-colors no-underline"
+                   >
+                     {link.name}
+                   </Link>
+                 </motion.div>
+               ))}
+               
+               <motion.button
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 transition={{ delay: 0.5 }}
+                 onClick={() => { onReserve(); setIsMobileOpen(false); }}
+                 className="mt-4 bg-terracotta-mid text-white px-12 py-6 rounded-full font-black uppercase tracking-[0.3em] text-[10px] shadow-xl"
+               >
+                 Reservar Mesa
+               </motion.button>
+            </div>
+
+            {/* Mobile Menu Footer Info */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="p-12 border-t border-black/5 flex flex-col items-center text-center gap-4 bg-white/50"
+            >
+               <p className="font-serif italic text-neutral-dark/40 text-sm">Güéjar Sierra, Granada.</p>
+               <div className="flex gap-6 mt-2 opacity-30">
+                  <div className="w-10 h-10 rounded-full border border-black flex items-center justify-center"><Phone size={14} /></div>
+                  <div className="w-10 h-10 rounded-full border border-black flex items-center justify-center"><Globe size={14} /></div>
+               </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

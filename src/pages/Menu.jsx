@@ -158,14 +158,18 @@ export default function Menu({ onReserve }) {
 
   const handleWhatsAppOrder = () => {
     const { total } = getCartTotal();
-    let orderText = `*Nuevo Pedido para Recoger - ENCAPACO*%0A%0A`;
+    let orderText = `*¡Hola ENCAPACO!* 👋%0A%0AQuisiera realizar el siguiente pedido para pasar a recoger:%0A%0A`;
+    
+    let i = 1;
     Object.entries(cart).forEach(([id, qty]) => {
       const item = MENU_ITEMS.find(m => m.id === Number(id));
       if (item) {
-        orderText += `${qty}x ${item.name} (${(item.price * qty).toFixed(2)}€)%0A`;
+        orderText += `*${i}.* ${qty}x ${item.name} (${(item.price * qty).toFixed(2)}€)%0A`;
+        i++;
       }
     });
-    orderText += `%0A*Total Estimado:* ${total.toFixed(2)}€%0A%0A_Digital Host via ENCAPACO_`;
+    
+    orderText += `%0A*Total Estimado:* ${total.toFixed(2)}€%0A%0A¿Cuál sería el tiempo aproximado para pasar a por ello?%0A%0A¡Muchas gracias! ✨`;
     window.open(`https://wa.me/34684790308?text=${orderText}`, '_blank');
     setCart({});
   };
