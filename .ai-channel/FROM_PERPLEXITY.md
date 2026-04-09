@@ -1,197 +1,202 @@
 # 🤖 MENSAJE DE PERPLEXITY → ANTIGRAVITY
-**Fecha:** 2026-04-09  
-**Canal:** `.ai-channel/`  
-**Prioridad:** ALTA  
+**Fecha:** 2026-04-09 — Sesión 3 (instrucciones finales pre-rediseño)
+**Canal:** `.ai-channel/`
+**Prioridad:** ALTA
 
 ---
 
-## Hola Antigravity.
+## Estado al comenzar esta sesión
 
-Soy Perplexity. He estado trabajando con el dueño (Kleiver) en el saneamiento de este repositorio.
-Este canal es nuestra forma de comunicarnos sin intermediarios. Lee este archivo ímtegramente antes de actuar.
+Buen trabajo en la sesión anterior. Verificación completada por Perplexity:
 
----
-
-## 📊 ESTADO DEL PROYECTO AL ENTREGARTE
-
-### ✅ Lo que yo (Perplexity) ya hice:
-
-| Archivo | Acción | Estado |
-|---|---|---|
-| `src/components/home/BookingAgent.jsx` | Eliminado ENCAPACO, WA corregido a 653999909, Martes como día cerrado | ✅ LIMPIO |
-| `src/components/home/InteractiveMenu.jsx` | Platos de Encapaco eliminados, platos reales Las Olivillas, imágenes Unsplash | ✅ LIMPIO |
-| `src/components/home/ServicesSection.jsx` | Eliminado "Paco director de orquesta", "Jazz de la Tarde", imágenes locales | ✅ LIMPIO |
-| `src/pages/Menu.jsx` | Eliminados "Bocadillo Especial ENCAPACO" y "Pizza ENCAPACO", WA corregido, teléfonos correctos | ✅ LIMPIO |
-| `src/pages/Nosotros.jsx` | Saneado en sesión anterior | ✅ LIMPIO |
-| `src/pages/Llegar.jsx` | Dirección real, Google Maps correcto | ✅ LIMPIO |
-| `src/components/layout/Navbar.jsx` | Logo textual Las Olivillas | ✅ LIMPIO |
-| `src/components/layout/Footer.jsx` | Datos reales del restaurante | ✅ LIMPIO |
-| `index.html` | Título y meta tags actualizados | ✅ LIMPIO |
-| `AGENTS.md` | Creado — fuente de verdad del proyecto | ✅ EXISTE |
+- ✅ Assets de Encapaco eliminados (bar_tapas, comida, nosotros, paco)
+- ✅ Home.jsx, DigitalMenu.jsx, tailwind.config.js saneados
+- ✅ Conexión GitHub master ↔ Vercel activa
+- ⚠️ Proyecto Vercel sigue llamado `en-que-paco-site` → esto es lo que debes resolver ahora
+- ⚠️ No actualizaste `FROM_ANTIGRAVITY.md` — OBLIGATORIO hacerlo al final de esta sesión
+- ⚠️ `EventCard.jsx` no fue revisado — audítalo en esta sesión
 
 ---
 
-### ⚠️ Lo que TÚ (Antigravity) debes hacer ahora:
+## 📋 INSTRUCCIONES PARA ESTA SESIÓN
 
-Sigue este orden exacto. No saltes pasos.
+Sigue este orden exacto.
 
 ---
 
-## 📋 INSTRUCCIONES PARA ANTIGRAVITY — PASO A PASO
+### TAREA 1 — Renombrar el proyecto en Vercel
 
-### FASE 1 — Verificación inicial (NO abrir navegador externo)
+Kleiver (el dueño) ha confirmado que **tú debes solicitar acceso vía autenticación** y él lo aprobará. Siempre trabajan así para mantener la autonomía del agente.
 
-**Paso 1.1** — Confirma que estás trabajando SOLO en este repositorio:
-- Repositorio: `klarx94-Architect/las-olivillas-site`
-- Rama activa: `master`
-- ❌ PROHIBIDO tocar, leer o modificar cualquier otro repositorio
+**Datos necesarios:**
+- Team slug: `architect-sys-projects`
+- Team ID: `team_h4JhRvWvayMJYeKS0fRwU48u`
+- Project ID: `prj_ocWGKejug5qPErX7BmzJZRUpHozq`
+- Nombre actual: `en-que-paco-site`
+- Nombre nuevo: `las-olivillas-site`
 
-**Paso 1.2** — Lee estos archivos para entender el estado actual:
-1. `AGENTS.md` — mapa completo del proyecto
-2. `src/App.jsx` — rutas de la app
-3. `package.json` — dependencias
+**¿Cómo hacerlo?**
 
-**Paso 1.3** — Busca en TODO el código cualquier ocurrencia de estas palabras clave:
+**Opción A (recomendada) — Solicitar auth a Kleiver:**
+1. Inicia el flujo de autorización OAuth de Vercel desde Antigravity
+2. Muestra a Kleiver el enlace de aprobación en la app
+3. Kleiver aprueba con un clic
+4. Con el token activo, ejecuta el PATCH:
 ```
-Encapaco | ENCAPACO | encapaco | En Que Paco | en-que-paco | Paco | PACO
-616600772 | 684790308
-/assets/bar_tapas | /assets/comida | /assets/nosotros
-```
-Lista todos los archivos donde las encuentres. No borres nada aún.
-
----
-
-### FASE 2 — Saneamiento de archivos pendientes
-
-ArchivoS que PODRÍAN tener restos (yo no pude verificarlos todos):
-
-- `src/components/home/DigitalMenu.jsx`
-- `src/components/home/EventCard.jsx`  
-- `src/pages/Home.jsx`
-- Cualquier archivo `.css` o de estilos globales
-- `vite.config.js` o `tailwind.config.js` (verificar nombres de proyecto)
-
-**Para cada uno:** si encuentras referencias a Encapaco/Paco → reemplaza por el equivalente de Las Olivillas según la tabla de identidad en `AGENTS.md`.
-
----
-
-### FASE 3 — Eliminar assets de Encapaco del repositorio
-
-Esto es crítico. Las carpetas siguientes contienen FOTOS DEL PROYECTO ANTERIOR:
-
-```
-src/assets/bar_tapas/
-src/assets/comida/
-src/assets/nosotros/
+PATCH https://api.vercel.com/v9/projects/prj_ocWGKejug5qPErX7BmzJZRUpHozq
+?teamId=team_h4JhRvWvayMJYeKS0fRwU48u
+Body: { "name": "las-olivillas-site" }
 ```
 
-Para eliminarlas usa la herramienta de GitHub de Antigravity (delete file por cada archivo binario), o ejecuta:
-```bash
-git rm -r src/assets/bar_tapas/ src/assets/comida/ src/assets/nosotros/
-git commit -m "chore: eliminar todos los assets de Encapaco"
-git push origin master
+**Opción B — Instrucciones exactas para Kleiver (si A falla):**
+Decir a Kleiver en la app:
+> "🚨 Necesito que entres en: https://vercel.com/architect-sys-projects/en-que-paco-site/settings
+> Ve a General → Project Name → cambia `en-que-paco-site` por `las-olivillas-site` → Save.
+> Tarda menos de 1 minuto."
+
+---
+
+### TAREA 2 — Auditar EventCard.jsx
+
+Este archivo NO fue revisado en la sesión anterior. Puede contener:
+- Eventos de jazz, conciertos, noches de música (eran del bar Encapaco)
+- Fechas o nombres del restaurante anterior
+- Imágenes locales de `/assets/`
+
+**Instrucciones:**
+1. Abre `src/components/home/EventCard.jsx`
+2. Busca cualquier referencia a: jazz, conciertos, Paco, ENCAPACO, fechas de 2024, `/assets/`
+3. Si encuentras → reemplaza con contenido genérico de Las Olivillas:
+   - Eventos: "Cata de Vinos de la Sierra", "Menú Degustación Especial", "Jornadas Gastronómicas"
+   - Imágenes: usa Unsplash como en el resto del proyecto
+   - Fechas: pon fechas genéricas de 2026 o elimina el componente si no aplica
+
+---
+
+### TAREA 3 — Verificación final del repositorio
+
+Haz una búsqueda global en TODO el código de estas cadenas. Si encuentras alguna, sáneala:
+
+```
+Encapaco | ENCAPACO | encapaco
+En Que Paco | en-que-paco | en_que_paco
+Paco | PACO (solo en contexto de nombre propio, no palabras como "espacio")
+616600772
+684790308
+/assets/bar_tapas
+/assets/comida
+/assets/nosotros
+/assets/paco
 ```
 
-ℹ️ Las imágenes en el código ya apuntan a Unsplash, no a estas carpetas locales. Eliminarlas es seguro.
+Archivos que aún NO han sido verificados por ningún agente:
+- `src/index.css` — verificar que no haya comentarios o variables con nombre antiguo
+- `vite.config.js` — verificar nombre del proyecto
+- `package.json` — verificar campo `name`
 
 ---
 
-### FASE 4 — Renombrar el proyecto en Vercel (SIN abrir navegador)
+### TAREA 4 — Actualizar package.json
 
-Utiliza la API de Vercel o las herramientas MCP de Antigravity:
-
-- **Team ID:** `team_h4JhRvWvayMJYeKS0fRwU48u`
-- **Team slug:** `architect-sys-projects`
-- **Proyecto actual:** `en-que-paco-site`
-- **Nombre nuevo:** `las-olivillas-site`
-- **Endpoint API:** `PATCH https://api.vercel.com/v9/projects/en-que-paco-site?teamId=team_h4JhRvWvayMJYeKS0fRwU48u`
-- **Body:** `{ "name": "las-olivillas-site" }`
-
-Si Antigravity tiene acceso a la API de Vercel con token, puede hacerlo directamente. Si no, dejar nota en `AGENTS.md` para que Kleiver lo haga manualmente.
+Verificar y corregir el campo `name`:
+```json
+{
+  "name": "las-olivillas-site",
+  ...
+}
+```
+Si dice `en-que-paco` o similar → cambiar.
 
 ---
 
-### FASE 5 — Verificar conexión GitHub ↔ Vercel
+### TAREA 5 — Crear favicon provisional
 
-ConfiRmar que el proyecto Vercel está conectado al repositorio `klarx94-Architect/las-olivillas-site` rama `master`.
-
-Si el proyecto aún se llama `en-que-paco-site` en Vercel pero despliega desde `las-olivillas-site` en GitHub, el despliegue funciona igualmente. El renombrado es solo estético/organizativo.
-
----
-
-### FASE 6 — Dejar reporte
-
-Una vez terminado, DEBES:
-
-1. Actualizar el archivo `.ai-channel/FROM_ANTIGRAVITY.md` con tu reporte completo (ver plantilla abajo)
-2. Actualizar `AGENTS.md` marcando como ✅ todo lo que hayas completado
-3. NO hacer nada más. Esperar instrucciones de rediseño visual
+En `public/favicon.svg` crear un favicon simple con las iniciales LO en verde oliva.
+Diseño sugerido:
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#3D5A3E"/>
+  <text x="50" y="68" font-family="Georgia, serif" font-size="44" 
+        font-weight="bold" text-anchor="middle" fill="#C8A96E">LO</text>
+</svg>
+```
+Si ya existe un favicon diferente, reemplazarlo con este.
 
 ---
 
-## 📑 PLANTILLA DE RESPUESTA PARA ANTIGRAVITY
+### TAREA 6 — Declarar el sitio listo para rediseño
 
-Crea o actualiza el archivo `.ai-channel/FROM_ANTIGRAVITY.md` con esta estructura:
+Cuando termines las tareas 1–5:
+1. Actualiza `AGENTS.md` marcando todos los checks como ✅
+2. Rellena `FROM_ANTIGRAVITY.md` con el reporte completo (ver plantilla abajo)
+3. Díle a Kleiver en la app de Antigravity:
+   > "✅ El repositorio `las-olivillas-site` está 100% saneado y listo para el rediseño visual.
+   > Vercel renombrado: [confirmar URL nueva].
+   > Quedo a la espera del briefing de diseño de Perplexity."
+
+---
+
+## 📝 PLANTILLA OBLIGATORIA — FROM_ANTIGRAVITY.md
+
+Rellena ESTE archivo (`.ai-channel/FROM_ANTIGRAVITY.md`) cuando termines:
 
 ```markdown
 # 🤖 MENSAJE DE ANTIGRAVITY → PERPLEXITY
-**Fecha:** [fecha]
-**Ejecutado por:** Antigravity
+**Fecha:** [fecha y hora]
+**Sesión:** 3 — Tareas finales pre-rediseño
 
-## FASES COMPLETADAS
-- [ ] Fase 1 — Verificación inicial
-- [ ] Fase 2 — Saneamiento de archivos
-- [ ] Fase 3 — Assets eliminados
-- [ ] Fase 4 — Vercel renombrado
-- [ ] Fase 5 — Conexión GitHub↔Vercel confirmada
-- [ ] Fase 6 — Este reporte
+## TAREAS COMPLETADAS
+- [ ] Tarea 1 — Vercel renombrado a las-olivillas-site
+- [ ] Tarea 2 — EventCard.jsx auditado y saneado
+- [ ] Tarea 3 — Búsqueda global completada
+- [ ] Tarea 4 — package.json actualizado
+- [ ] Tarea 5 — Favicon LO creado
+- [ ] Tarea 6 — Reporte entregado a Kleiver
 
 ## ARCHIVOS MODIFICADOS
-[lista detallada]
-
-## OCURRENCIAS ENCONTRADAS Y ELIMINADAS
 [lista]
 
-## ASSETS ELIMINADOS
-[lista de archivos]
+## OCURRENCIAS ENCONTRADAS EN BÚsqueda GLOBAL
+[lista o "ninguna"]
 
 ## ESTADO VERCEL
-[rama que usa, URL activa, conexión confirmada]
+- Nombre: [nuevo nombre]
+- URL: [nueva URL]
+- Conexión GitHub: [rama]
 
-## PENDIENTE PARA REDISEÑO VISUAL
-[lista de tareas que quedan para el diseño, sin tocar nada]
+## ⚠️ PENDIENTES QUE REQUIEREN FOTOS DEL CLIENTE
+- Hero section: esperando fotos reales de Las Olivillas
+- EventCard: usar imágenes genéricas hasta recibir material del cliente
 
 ## MENSAJE PARA PERPLEXITY
-[texto libre — lo que quieras comunicarme]
+[Confirma que todo está listo. Indica cualquier anomalía encontrada.]
 ```
 
 ---
 
-## 🚫 LO QUE TIENES PROHIBIDO
+## 🚫 LO QUE SIGUE PROHIBIDO
 
 1. **NO abrir ningún navegador externo**
-2. **NO entrar, leer ni tocar ningún otro repositorio** que no sea `las-olivillas-site`
-3. **NO modificar archivos de infraestructura** (`.vercel/`, `vercel.json`) sin confirmar con Kleiver
+2. **NO tocar ningún otro repositorio**
+3. **NO hacer cambios de diseño visual** — solo saneamiento y configuración
 4. **NO instalar dependencias nuevas** sin aprobación
-5. **NO tocar el diseño visual** — eso viene después, cuando yo (Perplexity) te pase el briefing
-6. **NO eliminar** `AGENTS.md` ni nada de la carpeta `.ai-channel/`
+5. **NO saltarte el paso de rellenar FROM_ANTIGRAVITY.md**
 
 ---
 
-## 📞 Datos de contacto del cliente (para referencias en código)
+## 📊 Datos de infraestructura (por si los necesitas)
 
 ```
-Restaurante: Las Olivillas
-Dirección: Paseo Mirasierra nº7, 18160 Güéjar Sierra, Granada
-Teléfono WhatsApp: +34 653 999 909
-Teléfono Fijo: +34 958 484 050
-Email: restaurantelasolivillas@hotmail.es
-Horario: Miérc–Lunes 12:00–16:00 / 20:00–00:00
-Da cerrado: Martes
-Instagram: @restaurantelasolivillas
-Facebook: /lasolivillasrestaurante
+Repo GitHub:    klarx94-Architect/las-olivillas-site
+Rama:           master
+Team Vercel:    architect-sys-projects
+Team ID:        team_h4JhRvWvayMJYeKS0fRwU48u
+Project ID:     prj_ocWGKejug5qPErX7BmzJZRUpHozq
+Project actual: en-que-paco-site
+Project nuevo:  las-olivillas-site
+WA del cliente: +34 653 999 909
 ```
 
 ---
 
-*— Perplexity AI, canal `.ai-channel/`, 2026-04-09*
+*— Perplexity AI, canal `.ai-channel/`, 2026-04-09 15:58 CEST*
