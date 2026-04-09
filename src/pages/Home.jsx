@@ -9,13 +9,13 @@ export default function Home({ onReserve }) {
     <>
       <Hero onReserve={onReserve} />
 
-      {/* The Legacy Statement */}
+      {/* The Heritage Statement */}
       <section id="about" className="py-60 px-10 bg-white relative overflow-hidden">
          <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-32 items-center">
             <div className="relative group">
                <div className="absolute -inset-10 bg-sierra-gold/5 rounded-full blur-[120px] group-hover:bg-sierra-gold/10 transition-colors duration-1000" />
                <div className="relative rounded-[4rem] overflow-hidden shadow-2xl skew-y-3 group-hover:skew-y-0 transition-transform duration-1000">
-                  <img src="/assets/nosotros/img-5549.jpg" alt="Paco's Heritage" className="w-full h-[600px] object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                  <img src="https://images.unsplash.com/photo-1542601039-29adde52b96c?q=80&w=1200&auto=format&fit=crop" alt="Las Olivillas Heritage" className="w-full h-[600px] object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
                </div>
             </div>
 
@@ -23,10 +23,10 @@ export default function Home({ onReserve }) {
                <span className="text-sierra-gold uppercase tracking-[0.6em] text-[10px] font-black mb-10 block">Nuestra Herencia</span>
                <h2 className="text-7xl md:text-9xl font-serif font-black leading-[0.85] mb-12">
                  Tradición <br />
-                 <span className="italic font-normal text-terracotta-mid">que suena.</span>
+                 <span className="italic font-normal text-terracotta-mid">natural.</span>
                </h2>
                <p className="text-xl md:text-2xl font-serif italic text-neutral-dark/60 leading-relaxed mb-16">
-                 "Más que un bar, somos un encuentro. En Güéjar Sierra, la madera cruje al ritmo del jazz mientras el aroma de la cocina casera invade cada rincón."
+                 "En el corazón de Güéjar Sierra, Las Olivillas ofrece una experiencia donde la tradición culinaria granadina se encuentra con las vistas impresionantes de Sierra Nevada."
                </p>
                
                <div className="grid grid-cols-2 gap-12">
@@ -35,8 +35,8 @@ export default function Home({ onReserve }) {
                      <p className="font-serif font-bold text-lg">Güejar Sierra, <br /> Granada.</p>
                   </div>
                   <div className="space-y-4">
-                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-dark/20">Selección</span>
-                     <p className="font-serif font-bold text-lg">Jazz, Country <br /> & Pop Classics.</p>
+                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neutral-dark/20">Experiencia</span>
+                     <p className="font-serif font-bold text-lg">Entorno Natural <br /> & Vistas Únicas.</p>
                   </div>
                </div>
 
@@ -58,11 +58,11 @@ export default function Home({ onReserve }) {
 
       {/* Experience Closing */}
       <section className="py-40 md:py-60 px-10 bg-neutral-dark text-pearl-white relative overflow-hidden text-center flex flex-col items-center justify-center min-h-[80vh]">
-         {/* Expanded, clearer background with smooth gradient masks (No hard line cuts) */}
+         {/* Expanded background with high-quality placeholders */}
          <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
-              src="/assets/bar_tapas/img-5555-2814460.jpg" 
-              alt="Paco Bar Atmosphere" 
+              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200&auto=format&fit=crop" 
+              alt="Las Olivillas Atmosphere" 
               className="w-full h-full object-cover scale-125 opacity-40"
             />
             {/* Vertical gradients to create a seamless flow between sections */}

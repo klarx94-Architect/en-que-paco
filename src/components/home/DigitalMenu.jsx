@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, ChevronRight } from 'lucide-react';
 
 const MENU_ITEMS = [
   { 
     id: 1, 
-    name: 'Carne a la Brasa "ENCAPACO"', 
+    name: 'Carne a la Brasa "Las Olivillas"', 
     price: '32€', 
     desc: 'Corte premium madurado 45 días, terminado en leña de encina.',
     image: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop',
@@ -31,11 +31,11 @@ const MENU_ITEMS = [
 
 export default function DigitalMenu() {
   return (
-    <section id="menu" className="py-24 px-6 bg-charcoal">
+    <section id="menu" className="py-24 px-6 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-gold uppercase tracking-[0.2em] text-sm mb-4 block">Nuestra Gastronomía</span>
-          <h2 className="text-5xl font-brand font-bold text-white">Sabores de la Tierra</h2>
+          <span className="text-[#C5A059] uppercase tracking-[0.2em] text-sm mb-4 block">Nuestra Gastronomía</span>
+          <h2 className="text-5xl font-serif font-bold text-white">Sabores de la Tierra</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -57,13 +57,13 @@ export default function DigitalMenu() {
               </div>
               
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-brand font-bold text-white group-hover:text-gold transition-colors">{item.name}</h3>
-                <span className="text-gold font-bold">{item.price}</span>
+                <h3 className="text-xl font-serif font-bold text-white group-hover:text-[#C5A059] transition-colors">{item.name}</h3>
+                <span className="text-[#C5A059] font-bold">{item.price}</span>
               </div>
               <p className="text-white/50 text-sm leading-relaxed mb-4">{item.desc}</p>
               
               {item.featured && (
-                <div className="flex items-center gap-1 text-gold text-[10px] uppercase font-bold tracking-widest">
+                <div className="flex items-center gap-1 text-[#C5A059] text-[10px] uppercase font-bold tracking-widest">
                   <Star size={12} fill="currentColor" />
                   Recomendado por el Chef
                 </div>
@@ -73,7 +73,7 @@ export default function DigitalMenu() {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="text-white border-b border-gold pb-1 hover:text-gold transition-colors inline-flex items-center gap-2 group">
+          <button className="text-white border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors inline-flex items-center gap-2 group">
             Ver la Carta Completa (PDF)
             <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
